@@ -1,0 +1,199 @@
+// Codes By Mahdi Tasha
+// Importing Parts
+@use "../global/colors" as colors;
+
+// Styles
+.footer {
+  // Public Styles
+  .footer__inner-wrapper {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding: 1rem .5rem;
+  }
+
+  // Styles Of Top Side Of Footer
+  &__top-side {
+    background-color: colors.$dark;
+
+    > .footer__inner-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__top-side-title {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  &__form {display: flex;}
+  &__input {
+    background-color: rgba(256,256,256,.2);
+    padding: .5rem 1rem;
+    width: 400px;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    border: none;
+    outline-color: white;
+    margin-right: 12px;
+
+    &::placeholder {
+      color: rgba(256,256,256,.4);
+      font-weight: 500;
+      font-size: 13px;
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+  }
+
+  &__top-side-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+  }
+
+  &__top-side-list-link {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Styles Of Middle Side Of Footer
+  &__middle-side {
+    background-color: white;
+
+    > .footer__inner-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding-block: 2rem;
+      gap: 30px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__list-heading {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: colors.$dark;
+    white-space: nowrap;
+  }
+
+  &__list-item, &__list-item > a {
+    color: rgba(18, 18, 18, .8);
+    font-weight: 400;
+    font-size: 12px;
+    white-space: nowrap;
+    height: 12px;
+  }
+
+  &__list-item svg {
+    margin-right: 11px;
+  }
+
+  // Styles Of Bottom Side Of Footer
+  &__bottom-side {
+    background-color: colors.$gr-white;
+
+    > .footer__inner-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 62px;
+    }
+  }
+
+  &__bottom-side-title {
+    color: rgba(18, 18, 18, .8);
+    font-weight: 500;
+    font-size: 11px;
+  }
+
+  &__logos-list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+  }
+
+  &__logo {
+    width: 43px;
+    height: 16px;
+  }
+
+  &__developer-name {
+    color: rgba(18, 18, 18, .8);
+    font-weight: 500;
+    font-size: 11px;
+
+    > span {
+      color: colors.$dark;
+      font-weight: 700;
+    }
+  }
+}
+
+// Media Querys
+@media (max-width: 991px) {
+  .footer {
+    &__top-side > .footer__inner-wrapper{
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    &__form {
+      flex-direction: column;
+      gap: 10px;
+      width: 80%;
+    }
+
+    &__btn {width: 100%;}
+    &__input {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__middle-side > .footer__inner-wrapper{
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__list {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__bottom-side > .footer__inner-wrapper{
+      flex-direction: column;
+    }
+
+    &__logos-list {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

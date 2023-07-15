@@ -1,0 +1,99 @@
+// Codes By Mahdi Tasha
+// Importing Parts
+@use "../global/colors" as colors;
+@use "../global/mixins" as mixins;
+
+// Styles
+.page {
+  &__categories-filter-bottom-side {
+    background-color: colors.$gr-white;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 1rem 2rem;
+    margin-bottom: 32px;
+    @include mixins.transition;
+
+    &[data-opened='true'] {
+      height: 300px;
+      padding: 1rem 2rem;
+    }
+
+    &[data-opened='false'] {
+      height: 0;
+      padding: 0;
+    }
+  }
+
+  &__categories-filter-side-title {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: colors.$dark;
+    margin-bottom: 12px;
+  }
+
+  &__categories-filter-side-scroll-holder {
+    overflow: auto;
+    height: 230px;
+    @include mixins.scrollbar;
+  }
+
+  &__categories-filter-side-list {
+    list-style: none;
+
+    > li {margin-bottom: 16px;}
+  }
+
+  &__categories-filter-side-color-li {
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(18,18,18,.8);
+
+    > span {
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      margin-right: 5px;
+      display: inline-block;
+    }
+  }
+
+  &__categories-filter-side-chckbox-li {
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(18,18,18,.8);
+
+    label {
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      border-radius: 0;
+      border: rgba(18,18,18,.8);
+      accent-color: colors.$dark;
+      margin-right: 8px;
+    }
+  }
+}
+
+// Media Querys
+@media (max-width: 991px) {
+  .page {
+    &__categories-filter-bottom-side[data-opened='true'] {height: 600px;}
+    &__categories-filter-bottom-side {grid-template-columns: repeat(2, 1fr);}
+  }
+}
+
+@media (max-width: 991px) {
+  .page {
+    &__categories-filter-bottom-side[data-opened='true'] {height: 1200px;}
+    &__categories-filter-bottom-side {grid-template-columns: repeat(1, 1fr);}
+  }
+}
